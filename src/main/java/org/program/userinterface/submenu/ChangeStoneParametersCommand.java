@@ -1,7 +1,7 @@
 package org.program.userinterface.submenu;
 
 import org.apache.log4j.Logger;
-import org.program.execution.FileWorker;
+import org.program.execution.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
 import org.program.stones.Stone;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ChangeStoneParametersCommand implements Command {
-    private static final Logger logger = Logger.getLogger(FileWorker.class);
+    private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
     private final List<Stone> collection;
 
     public ChangeStoneParametersCommand(List<Stone> collection) {
@@ -64,8 +64,8 @@ public class ChangeStoneParametersCommand implements Command {
             }
         }
 
-        FileWorker.deleteFile(collection.get(stoneIndex), "collection");
-        FileWorker.writeIntoFile(collection.get(stoneIndex), "collection");
+        DatabaseWorker.deleteFile(collection.get(stoneIndex), "collection");
+        DatabaseWorker.writeIntoDatabase(collection.get(stoneIndex), "collection");
     }
 
     @Override

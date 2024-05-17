@@ -17,7 +17,7 @@ import java.util.Scanner;
 import static org.program.userinterface.menuinterface.BeautifulOutput.*;
 
 public class Program {
-    private static final Logger logger = Logger.getLogger(FileWorker.class);
+    private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
 
     /**
      * @param collection
@@ -50,11 +50,11 @@ public class Program {
         if (type.equals("дорогоцінний")) {
             PreciousStone stone = new PreciousStone(name, color, weight, value, transparency);
             collection.add(stone);
-            FileWorker.writeIntoFile(stone, "collection");
+            DatabaseWorker.writeIntoDatabase(stone, "collection");
         } else if (type.equals("напівкоштовний")) {
             SemiPreciousStone stone = new SemiPreciousStone(name, color, weight, value, transparency);
             collection.add(stone);
-            FileWorker.writeIntoFile(stone, "collection");
+            DatabaseWorker.writeIntoDatabase(stone, "collection");
         }
     }
 

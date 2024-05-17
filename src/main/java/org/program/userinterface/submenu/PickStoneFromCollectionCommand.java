@@ -1,7 +1,7 @@
 package org.program.userinterface.submenu;
 
 import org.apache.log4j.Logger;
-import org.program.execution.FileWorker;
+import org.program.execution.DatabaseWorker;
 import org.program.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 import org.program.userinterface.menuinterface.BeautifulOutput;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PickStoneFromCollectionCommand implements Command {
-    private static final Logger logger = Logger.getLogger(FileWorker.class);
+    private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
     private final List<Stone> collection;
     private final List<Stone> necklace;
 
@@ -46,8 +46,8 @@ public class PickStoneFromCollectionCommand implements Command {
 
         logger.info("Додавання каменя \"" + collection.get(stoneIndex - 1).getName() + "\" до намиста");
 
-        FileWorker.deleteFile(collection.get(stoneIndex - 1), "collection");
-        FileWorker.writeIntoFile(collection.get(stoneIndex - 1), "necklace");
+        DatabaseWorker.deleteFile(collection.get(stoneIndex - 1), "collection");
+        DatabaseWorker.writeIntoDatabase(collection.get(stoneIndex - 1), "necklace");
 
         necklace.add(collection.get(stoneIndex - 1));
         collection.remove(stoneIndex - 1);

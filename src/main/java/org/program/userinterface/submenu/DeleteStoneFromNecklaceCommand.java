@@ -1,7 +1,7 @@
 package org.program.userinterface.submenu;
 
 import org.apache.log4j.Logger;
-import org.program.execution.FileWorker;
+import org.program.execution.DatabaseWorker;
 import org.program.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
 import static org.program.userinterface.menuinterface.BeautifulOutput.*;
 
 public class DeleteStoneFromNecklaceCommand implements Command {
-    private static final Logger logger = Logger.getLogger(FileWorker.class);
+    private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
     private final List<Stone> necklace;
     private final List<Stone> collection;
 
@@ -44,8 +44,8 @@ public class DeleteStoneFromNecklaceCommand implements Command {
 
         printRed("\nВидалений камінь: " + necklace.get(stoneIndex - 1).getAsString());
 
-        FileWorker.deleteFile(necklace.get(stoneIndex - 1), "necklace");
-        FileWorker.writeIntoFile(necklace.get(stoneIndex - 1), "collection");
+        DatabaseWorker.deleteFile(necklace.get(stoneIndex - 1), "necklace");
+        DatabaseWorker.writeIntoDatabase(necklace.get(stoneIndex - 1), "collection");
 
         collection.add(necklace.get(stoneIndex - 1));
         necklace.remove(stoneIndex - 1);

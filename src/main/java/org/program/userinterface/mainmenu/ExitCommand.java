@@ -1,12 +1,12 @@
 package org.program.userinterface.mainmenu;
 
 import org.apache.log4j.Logger;
-import org.program.execution.FileWorker;
+import org.program.execution.DatabaseWorker;
 import org.program.userinterface.interfaceClass.Command;
 import org.program.userinterface.menuinterface.BeautifulOutput;
 
 public class ExitCommand implements Command {
-    private static final Logger logger = Logger.getLogger(FileWorker.class);
+    private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
 
     public ExitCommand() {
     }
