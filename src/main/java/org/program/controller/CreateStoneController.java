@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.log4j.chainsaw.Main;
 import org.program.execution.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
@@ -20,10 +21,22 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class CreateStoneController {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     @FXML
     private TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
     @FXML
     private RadioButton preciousRadioButton, semipreciousRadioButton;
+
+    public void switchToCreateStone(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStoneScene.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void createStone(ActionEvent event) throws IOException {
         String name = nameTextField.getText();
@@ -42,9 +55,13 @@ public class CreateStoneController {
             DatabaseWorker.writeIntoDatabase(stone, false);
         }
 
+        goBack(event);
+    }
+
+    public void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/MainMenuScene.fxml")));
-        Parent root = loader.load();
-        SceneController sceneController = loader.getController();
-        sceneController.switchToMainMenu(event);
+        loader.load();
+        MainMenuController mainMenuController = loader.getController();
+        mainMenuController.switchToMainMenu(event);
     }
 }

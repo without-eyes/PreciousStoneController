@@ -9,12 +9,9 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.program.execution.DatabaseWorker;
-import org.program.stones.Stone;
 import org.program.stones.Storage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class PreciousStoneApplication extends Application {
