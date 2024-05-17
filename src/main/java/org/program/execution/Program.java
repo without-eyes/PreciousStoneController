@@ -50,11 +50,11 @@ public class Program {
         if (type.equals("дорогоцінний")) {
             PreciousStone stone = new PreciousStone(name, color, weight, value, transparency);
             collection.add(stone);
-            DatabaseWorker.writeIntoDatabase(stone, "collection");
+            //DatabaseWorker.writeIntoDatabase(stone, "collection");
         } else if (type.equals("напівкоштовний")) {
             SemiPreciousStone stone = new SemiPreciousStone(name, color, weight, value, transparency);
             collection.add(stone);
-            DatabaseWorker.writeIntoDatabase(stone, "collection");
+            //DatabaseWorker.writeIntoDatabase(stone, "collection");
         }
     }
 

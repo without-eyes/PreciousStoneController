@@ -5,7 +5,6 @@ import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
 import org.program.stones.Stone;
 
-import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,8 +14,8 @@ import java.util.List;
 
 public class DatabaseWorker {
     private static final Logger logger = Logger.getLogger(DatabaseWorker.class);
-    private static final String driverName = "com.mysql.jdbc.Driver";
-    private static final String databaseName = "jdbc:mysql://localhost::3306/PreciousStoneController";
+    private static final String driverName = "com.mysql.cj.jdbc.Driver";
+    private static final String databaseName = "jdbc:mysql://localhost:3306/PreciousStoneController";
     private static final String user = "admin";
     private static final String password = "password";
 
@@ -35,11 +34,11 @@ public class DatabaseWorker {
                     "                                " + stone.getTransparency() + "," +
                     "                                " + addIntoNecklace + ")";
             statement.executeUpdate(query);
+
+            logger.info("Запис каменя у базу даних відбувся успішно");
         } catch (Exception e) {
             logger.info("Помилка запису каменя у базу даних:" + e.toString());
         }
-
-        logger.info("Запис каменя у базу даних відбувся успішно");
     }
 
     public static List<Stone> readFromDatabase(Boolean isNecklace) {
@@ -77,11 +76,11 @@ public class DatabaseWorker {
                     }
                 }
             }
+
+            logger.info("Зчитування каменів з бази даних відбулося успішно");
         } catch (Exception e) {
             logger.info("Помилка зчитування каменів з бази даних:" + e.toString());
         }
-
-        logger.info("Зчитування каменів з бази даних відбулося успішно");
 
         return storage;
     }
@@ -99,11 +98,11 @@ public class DatabaseWorker {
                     "                                   Value = " + stone.getValue() + " AND" +
                     "                                   Transparency = " + stone.getTransparency() + ";";
             statement.executeUpdate(query);
+
+            logger.info("Видалення каменя з бази даних відбулося успішно");
         } catch (Exception e) {
             logger.info("Помилка видалення каменя з бази даних:" + e.toString());
         }
-
-        logger.info("Видалення каменя з бази даних відбулося успішно");
     }
 
     public static void cleanNecklace() {
@@ -114,10 +113,10 @@ public class DatabaseWorker {
             Statement statement = connection.createStatement();
             String query = "UPDATE Stones SET isInNecklace = false;";
             statement.executeUpdate(query);
+
+            logger.info("Видалення каменів з намиста і повернення їх у колекцію відбулося успішно");
         } catch (Exception e) {
             logger.info("Помилка видалення каменів з намиста і повернення їх у колекцію:" + e.toString());
         }
-
-        logger.info("Видалення каменів з намиста і повернення їх у колекцію відбулося успішно");
     }
 }

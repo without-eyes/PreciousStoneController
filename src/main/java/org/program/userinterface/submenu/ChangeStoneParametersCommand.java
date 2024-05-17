@@ -64,8 +64,8 @@ public class ChangeStoneParametersCommand implements Command {
             }
         }
 
-        DatabaseWorker.deleteFile(collection.get(stoneIndex), "collection");
-        DatabaseWorker.writeIntoDatabase(collection.get(stoneIndex), "collection");
+//        DatabaseWorker.deleteFile(collection.get(stoneIndex), "collection");
+//        DatabaseWorker.writeIntoDatabase(collection.get(stoneIndex), "collection");
     }
 
     @Override

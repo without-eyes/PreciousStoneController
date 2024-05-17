@@ -10,6 +10,6 @@ public class Storage {
 
     public static void initializeStorage() {
         collection = DatabaseWorker.readFromDatabase(false);
-        necklace = DatabaseWorker.readFromDatabase(true)
+        necklace = DatabaseWorker.readFromDatabase(true);
     }
 }

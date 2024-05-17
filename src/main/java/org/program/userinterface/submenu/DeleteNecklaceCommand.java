@@ -19,7 +19,7 @@ public class DeleteNecklaceCommand implements Command {
     public void execute() {
         logger.info("Видалення намиста");
         necklace.clear();
-        DatabaseWorker.cleanNecklace("necklace");
+        //DatabaseWorker.cleanNecklace("necklace");
     }
 
     @Override
