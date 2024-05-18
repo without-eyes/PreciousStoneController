@@ -19,7 +19,7 @@
                 <Font name="Arial Black" size="15.0" />
             </font>
         </Button>
-        <Button layoutX="173.0" layoutY="234.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="375.0" text="Показати колекцію">
+        <Button layoutX="173.0" layoutY="234.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="71.0" prefWidth="375.0" text="Показати колекцію">
             <font>
                 <Font name="Arial Black" size="15.0" />
             </font>

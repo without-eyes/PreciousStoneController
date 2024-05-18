@@ -15,7 +15,7 @@ public class MainMenuController {
     private Scene scene;
     private Parent root;
 
-    public void switchToMainMenu(ActionEvent event) throws IOException {
+    public void switchToThisScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/program/application/MainMenuScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -24,18 +24,18 @@ public class MainMenuController {
     }
 
     public void switchToCreateStone(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStoneScene.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStonesScene.fxml")));
         loader.load();
         CreateStoneController createStoneController = loader.getController();
-        createStoneController.switchToCreateStone(event);
+        createStoneController.switchToThisScene(event);
     }
 
-//    public void goToCollection(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CollectionScene.fxml")));
-//        loader.load();
-//        SceneController sceneController = loader.getController();
-//        sceneController.switchToCollection(event);
-//    }
+    public void goToCollection(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CollectionScene.fxml")));
+        loader.load();
+        CollectionController collectionController = loader.getController();
+        collectionController.switchToThisScene(event);
+    }
 
 //    public void goToNecklace(ActionEvent event) throws IOException {
 //        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/NecklaceScene.fxml")));

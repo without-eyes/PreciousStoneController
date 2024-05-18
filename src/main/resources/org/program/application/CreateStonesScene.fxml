@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -65,8 +66,11 @@
             <font>
                 <Font name="Arial Black" size="15.0" />
             </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="semipreciousRadioButton" layoutX="499.0" layoutY="164.0" mnemonicParsing="false" text="Напівкоштовний" textFill="#77d4ff">
+        <RadioButton fx:id="semipreciousRadioButton" layoutX="499.0" layoutY="164.0" mnemonicParsing="false" text="Напівкоштовний" textFill="#77d4ff" toggleGroup="$type">
             <font>
                 <Font name="Arial Black" size="15.0" />
             </font>

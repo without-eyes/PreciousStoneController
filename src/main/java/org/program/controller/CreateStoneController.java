@@ -6,15 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.apache.log4j.chainsaw.Main;
 import org.program.execution.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
 import org.program.stones.Storage;
 
 import java.io.IOException;
@@ -30,8 +27,8 @@ public class CreateStoneController {
     @FXML
     private RadioButton preciousRadioButton, semipreciousRadioButton;
 
-    public void switchToCreateStone(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStoneScene.fxml")));
+    public void switchToThisScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStonesScene.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -62,6 +59,6 @@ public class CreateStoneController {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/MainMenuScene.fxml")));
         loader.load();
         MainMenuController mainMenuController = loader.getController();
-        mainMenuController.switchToMainMenu(event);
+        mainMenuController.switchToThisScene(event);
     }
 }
