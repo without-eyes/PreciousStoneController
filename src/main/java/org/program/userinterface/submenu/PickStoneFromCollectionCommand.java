@@ -46,7 +46,7 @@ public class PickStoneFromCollectionCommand implements Command {
 
         logger.info("Додавання каменя \"" + collection.get(stoneIndex - 1).getName() + "\" до намиста");
 
-//        DatabaseWorker.deleteFile(collection.get(stoneIndex - 1), "collection");
+//        DatabaseWorker.deleteStone(collection.get(stoneIndex - 1), "collection");
 //        DatabaseWorker.writeIntoDatabase(collection.get(stoneIndex - 1), "necklace");
 
         necklace.add(collection.get(stoneIndex - 1));

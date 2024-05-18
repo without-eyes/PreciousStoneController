@@ -24,7 +24,7 @@ public class MainMenuController {
     }
 
     public void switchToCreateStone(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStonesScene.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStoneScene.fxml")));
         loader.load();
         CreateStoneController createStoneController = loader.getController();
         createStoneController.switchToThisScene(event);

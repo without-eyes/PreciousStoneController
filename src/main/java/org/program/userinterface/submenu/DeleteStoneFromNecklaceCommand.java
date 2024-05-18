@@ -44,7 +44,7 @@ public class DeleteStoneFromNecklaceCommand implements Command {
 
         printRed("\nВидалений камінь: " + necklace.get(stoneIndex - 1).getAsString());
 
-//        DatabaseWorker.deleteFile(necklace.get(stoneIndex - 1), "necklace");
+//        DatabaseWorker.deleteStone(necklace.get(stoneIndex - 1), "necklace");
 //        DatabaseWorker.writeIntoDatabase(necklace.get(stoneIndex - 1), "collection");
 
         collection.add(necklace.get(stoneIndex - 1));

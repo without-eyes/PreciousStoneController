@@ -85,7 +85,39 @@ public class DatabaseWorker {
         return storage;
     }
 
-    public static void deleteFile(Stone stone) {
+    public static void changeStone(Stone oldStone, Stone newStone) {
+        logger.info("Зміна каменя в базі даних");
+        try {
+            Class.forName(driverName);
+            try (Connection connection = DriverManager.getConnection(databaseName, user, password);
+                 Statement statement = connection.createStatement()) {
+
+                String deleteQuery = "DELETE FROM Stones WHERE Name = '" + oldStone.getName() + "' AND " +
+                        "Type = '" + oldStone.getClass().getSimpleName() + "' AND " +
+                        "Color = '" + oldStone.getColor() + "' AND " +
+                        "Weight = " + oldStone.getWeight() + " AND " +
+                        "Value = " + oldStone.getValue() + " AND " +
+                        "Transparency = " + oldStone.getTransparency() + ";";
+                statement.executeUpdate(deleteQuery);
+                logger.info("Видалення старого каменя з бази даних відбулося успішно");
+
+                String insertQuery = "INSERT INTO Stones (Name, Type, Color, Weight, Value, Transparency) VALUES (" +
+                        "'" + newStone.getName() + "', " +
+                        "'" + newStone.getClass().getSimpleName() + "', " +
+                        "'" + newStone.getColor() + "', " +
+                        newStone.getWeight() + ", " +
+                        newStone.getValue() + ", " +
+                        newStone.getTransparency() + ");";
+                statement.executeUpdate(insertQuery);
+                logger.info("Додавання зміненого каменя до бази даних відбулося успішно");
+            }
+        } catch (Exception e) {
+            logger.info("Помилка зміни каменя в базі даних: " + e.toString());
+        }
+    }
+
+
+    public static void deleteStone(Stone stone) {
         logger.info("Видалення каменя з бази даних");
         try {
             Class.forName(driverName);

@@ -53,14 +53,18 @@ public class CollectionController {
     }
 
     public void changeStone(ActionEvent event) throws IOException {
-
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/ChangeStoneScene.fxml")));
+        loader.load();
+        ChangeStoneController changeStoneController = loader.getController();
+        ChangeStoneController.setSelectedStone(stonesTable.getSelectionModel().getSelectedItem());
+        changeStoneController.switchToThisScene(event);
     }
 
     public void deleteStone(ActionEvent event) throws IOException {
         Stone selectedStone = stonesTable.getSelectionModel().getSelectedItem();
         stonesTable.getItems().remove(selectedStone);
         Storage.collection.remove(selectedStone);
-        DatabaseWorker.deleteFile(selectedStone);
+        DatabaseWorker.deleteStone(selectedStone);
     }
 
     public void goBack(ActionEvent event) throws IOException {

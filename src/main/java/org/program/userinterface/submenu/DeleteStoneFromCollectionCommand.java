@@ -35,7 +35,7 @@ public class DeleteStoneFromCollectionCommand implements Command {
         logger.info("Видалення каміня \"" + collection.get(stoneIndex - 1).getName() + "\" з колекції");
 
         BeautifulOutput.printRed("\nВидалений камінь: " + collection.get(stoneIndex - 1).getAsString());
-        //DatabaseWorker.deleteFile(collection.get(stoneIndex - 1), "collection");
+        //DatabaseWorker.deleteStone(collection.get(stoneIndex - 1), "collection");
 
         collection.remove(stoneIndex - 1);
     }
