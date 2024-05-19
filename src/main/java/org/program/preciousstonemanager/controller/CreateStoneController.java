@@ -1,39 +1,30 @@
-package org.program.controller;
+package org.program.preciousstonemanager.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import org.program.execution.DatabaseWorker;
+import org.program.preciousstonemanager.controller.abstractcontrollers.SceneController;
+import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
-import org.program.stones.Storage;
 import org.program.stones.Stone;
+import org.program.stones.Storage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class CreateStoneController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class CreateStoneController extends SceneController {
     @FXML
     private TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
     @FXML
     private RadioButton preciousRadioButton, semipreciousRadioButton;
 
-    public void switchToThisScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/program/application/CreateStoneScene.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+    @Override
+    public void initialize() {
+        fxmlFileName = "CreateStoneScene";
     }
 
     public void createStone(ActionEvent event) throws IOException {
@@ -56,7 +47,7 @@ public class CreateStoneController {
     }
 
     public void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/MainMenuScene.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/MainMenuScene.fxml")));
         loader.load();
         MainMenuController mainMenuController = loader.getController();
         mainMenuController.switchToThisScene(event);

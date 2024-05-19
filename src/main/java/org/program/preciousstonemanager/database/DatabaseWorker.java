@@ -1,4 +1,4 @@
-package org.program.execution;
+package org.program.preciousstonemanager.database;
 
 import org.apache.log4j.Logger;
 import org.program.stones.PreciousStone;

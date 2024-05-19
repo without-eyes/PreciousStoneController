@@ -1,6 +1,6 @@
 package org.program.stones;
 
-import org.program.execution.DatabaseWorker;
+import org.program.preciousstonemanager.database.DatabaseWorker;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.program.execution;
+package org.program.preciousstonemanager.database;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,15 +1,12 @@
-package org.program.controller;
+package org.program.preciousstonemanager.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import org.program.execution.DatabaseWorker;
+import org.program.preciousstonemanager.controller.abstractcontrollers.SceneController;
+import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
 import org.program.stones.Stone;
@@ -18,11 +15,7 @@ import org.program.stones.Storage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ChangeStoneController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class ChangeStoneController extends SceneController {
     private static Stone selectedStone;
 
     @FXML
@@ -30,8 +23,13 @@ public class ChangeStoneController {
     @FXML
     private RadioButton preciousRadioButton, semipreciousRadioButton;
 
+    public static void setSelectedStone(Stone stone) {
+        selectedStone = stone;
+    }
+
     @FXML
     public void initialize() {
+        fxmlFileName = "ChangeStoneScene";
         if (selectedStone != null) {
             nameTextField.setText(selectedStone.getName());
             if (selectedStone.getType().equals("дорогоцінний")) {
@@ -46,15 +44,6 @@ public class ChangeStoneController {
         }
     }
 
-    public void switchToThisScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/ChangeStoneScene.fxml")));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void changeStone(ActionEvent event) throws IOException {
         String name = nameTextField.getText();
         String color = colorTextField.getText();
@@ -62,7 +51,7 @@ public class ChangeStoneController {
         int value = Integer.parseInt(valueTextField.getText());
         int transparency = Integer.parseInt(transparencyTextField.getText());
 
-        Stone stone= null;
+        Stone stone = null;
         if (preciousRadioButton.isSelected()) {
             stone = new PreciousStone(name, color, weight, value, transparency);
         } else if (semipreciousRadioButton.isSelected()) {
@@ -76,13 +65,9 @@ public class ChangeStoneController {
     }
 
     public void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/application/CollectionScene.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/CollectionScene.fxml")));
         loader.load();
         MainMenuController mainMenuController = loader.getController();
         mainMenuController.switchToThisScene(event);
-    }
-
-    public static void setSelectedStone(Stone stone) {
-        selectedStone = stone;
     }
 }

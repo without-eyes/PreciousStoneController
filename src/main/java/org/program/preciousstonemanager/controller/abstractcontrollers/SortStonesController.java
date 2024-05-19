@@ -1,13 +1,8 @@
-package org.program.controller;
+package org.program.preciousstonemanager.controller.abstractcontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
-import javafx.stage.Stage;
 import org.program.stones.Stone;
 
 import java.io.IOException;
@@ -15,19 +10,10 @@ import java.text.Collator;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
-public abstract class SortStonesController {
-    protected Stage stage;
-    protected Scene scene;
-    protected Parent root;
-
+public abstract class SortStonesController extends SceneController {
     @FXML
     protected RadioButton nameRadioButton, typeRadioButton, colorRadioButton, weightRadioButton, valueRadioButton, transparencyRadioButton;
-
-    public void switchToThisScene(ActionEvent event) throws IOException {
-
-    }
 
     public void sortStones(ActionEvent event) throws IOException {
 

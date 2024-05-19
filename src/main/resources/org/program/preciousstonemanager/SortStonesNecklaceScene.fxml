@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: LIGHTSKYBLUE;"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="org.program.preciousstonemanager.controller.SortStonesCollectionController">
+    <children>
+        <ImageView fitHeight="500.0" fitWidth="680.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@../files/images/background.png"/>
+            </image>
+        </ImageView>
+        <Button layoutX="120.0" layoutY="406.0" mnemonicParsing="false" onAction="#sortStones" prefHeight="71.0"
+                prefWidth="481.0" text="Посортувати">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </Button>
+        <Label alignment="TOP_CENTER" layoutX="132.0" layoutY="60.0" prefHeight="71.0" prefWidth="458.0" text="Колекція"
+               textFill="#77d4ff" wrapText="true">
+            <font>
+                <Font name="Arial Black" size="40.0"/>
+            </font>
+        </Label>
+        <Label layoutX="65.0" layoutY="139.0" text="Посортувати колекцію за:" textFill="#77d4ff">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </Label>
+        <RadioButton fx:id="nameRadioButton" layoutX="158.0" layoutY="194.0" mnemonicParsing="false" text="Назва"
+                     textFill="#77d4ff">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+            <toggleGroup>
+                <ToggleGroup fx:id="parametr"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="typeRadioButton" layoutX="158.0" layoutY="253.0" mnemonicParsing="false" text="Тип"
+                     textFill="#77d4ff" toggleGroup="$parametr">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="colorRadioButton" layoutX="158.0" layoutY="318.0" mnemonicParsing="false" text="Колір"
+                     textFill="#77d4ff" toggleGroup="$parametr">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="weightRadioButton" layoutX="398.0" layoutY="194.0" mnemonicParsing="false" text="Вага"
+                     textFill="#77d4ff" toggleGroup="$parametr">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="valueRadioButton" layoutX="398.0" layoutY="253.0" mnemonicParsing="false" text="Ціна"
+                     textFill="#77d4ff" toggleGroup="$parametr">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="transparencyRadioButton" layoutX="398.0" layoutY="318.0" mnemonicParsing="false"
+                     text="Прозорість" textFill="#77d4ff" toggleGroup="$parametr">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+        </RadioButton>
+    </children>
+</AnchorPane>

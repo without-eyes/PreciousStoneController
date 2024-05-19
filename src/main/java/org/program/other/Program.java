@@ -1,6 +1,7 @@
-package org.program.execution;
+package org.program.other;
 
 import org.apache.log4j.Logger;
+import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
 import org.program.stones.Stone;

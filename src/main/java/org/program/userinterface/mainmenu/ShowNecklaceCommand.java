@@ -1,6 +1,6 @@
 package org.program.userinterface.mainmenu;
 
-import org.program.execution.Program;
+import org.program.other.Program;
 import org.program.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 
