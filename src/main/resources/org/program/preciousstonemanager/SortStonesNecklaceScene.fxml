@@ -9,7 +9,7 @@
             minWidth="-Infinity"
             prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: LIGHTSKYBLUE;"
             xmlns="http://javafx.com/javafx/21"
-            fx:controller="org.program.preciousstonemanager.controller.SortStonesCollectionController">
+            fx:controller="org.program.preciousstonemanager.controller.collection.SortStonesCollectionController">
     <children>
         <ImageView fitHeight="500.0" fitWidth="680.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true" smooth="false">
             <image>

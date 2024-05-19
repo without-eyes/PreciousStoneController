@@ -1,11 +1,10 @@
-package org.program.preciousstonemanager.controller;
+package org.program.preciousstonemanager.controller.mainmenu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import org.program.preciousstonemanager.controller.abstractcontrollers.SceneController;
+import org.program.preciousstonemanager.controller.abstractcontrollers.scenes.SceneWithGoBackController;
 import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
@@ -13,14 +12,12 @@ import org.program.stones.Stone;
 import org.program.stones.Storage;
 
 import java.io.IOException;
-import java.util.Objects;
 
-public class CreateStoneController extends SceneController {
+public class CreateStoneController extends SceneWithGoBackController {
     @FXML
     private TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
     @FXML
     private RadioButton preciousRadioButton, semipreciousRadioButton;
-
 
     @Override
     public void initialize() {
@@ -44,12 +41,5 @@ public class CreateStoneController extends SceneController {
         DatabaseWorker.writeIntoDatabase(stone, false);
 
         goBack(event);
-    }
-
-    public void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/MainMenuScene.fxml")));
-        loader.load();
-        MainMenuController mainMenuController = loader.getController();
-        mainMenuController.switchToThisScene(event);
     }
 }

@@ -2,7 +2,9 @@ package org.program.preciousstonemanager.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import org.program.preciousstonemanager.controller.abstractcontrollers.SceneController;
+import org.program.preciousstonemanager.controller.abstractcontrollers.scenes.SceneController;
+import org.program.preciousstonemanager.controller.mainmenu.CollectionController;
+import org.program.preciousstonemanager.controller.mainmenu.CreateStoneController;
 
 import java.io.IOException;
 import java.util.Objects;

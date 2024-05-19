@@ -1,11 +1,10 @@
-package org.program.preciousstonemanager.controller;
+package org.program.preciousstonemanager.controller.collection;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import org.program.preciousstonemanager.controller.abstractcontrollers.SceneController;
+import org.program.preciousstonemanager.controller.abstractcontrollers.scenes.SceneWithGoBackController;
 import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.stones.PreciousStone;
 import org.program.stones.SemiPreciousStone;
@@ -13,15 +12,15 @@ import org.program.stones.Stone;
 import org.program.stones.Storage;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.util.List;
 
-public class ChangeStoneController extends SceneController {
-    private static Stone selectedStone;
+public class ChangeStoneController extends SceneWithGoBackController {
+    protected static Stone selectedStone;
 
     @FXML
-    private TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
+    protected TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
     @FXML
-    private RadioButton preciousRadioButton, semipreciousRadioButton;
+    protected RadioButton preciousRadioButton, semipreciousRadioButton;
 
     public static void setSelectedStone(Stone stone) {
         selectedStone = stone;
@@ -30,6 +29,7 @@ public class ChangeStoneController extends SceneController {
     @FXML
     public void initialize() {
         fxmlFileName = "ChangeStoneScene";
+        pathBack = "/org/program/preciousstonemanager/CollectionScene.fxml";
         if (selectedStone != null) {
             nameTextField.setText(selectedStone.getName());
             if (selectedStone.getType().equals("дорогоцінний")) {
@@ -62,12 +62,5 @@ public class ChangeStoneController extends SceneController {
         DatabaseWorker.changeStone(selectedStone, stone);
 
         goBack(event);
-    }
-
-    public void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/CollectionScene.fxml")));
-        loader.load();
-        MainMenuController mainMenuController = loader.getController();
-        mainMenuController.switchToThisScene(event);
     }
 }

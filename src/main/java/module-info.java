@@ -11,6 +11,12 @@ module org.program.preciousstonemanager {
 
     exports org.program.preciousstonemanager;
     exports org.program.preciousstonemanager.controller;
-    exports org.program.preciousstonemanager.controller.abstractcontrollers;
-    opens org.program.preciousstonemanager.controller.abstractcontrollers to javafx.fxml;
+    exports org.program.preciousstonemanager.controller.collection;
+    opens org.program.preciousstonemanager.controller.collection to javafx.fxml;
+    exports org.program.preciousstonemanager.controller.mainmenu;
+    opens org.program.preciousstonemanager.controller.mainmenu to javafx.fxml;
+    exports org.program.preciousstonemanager.controller.abstractcontrollers.storage;
+    opens org.program.preciousstonemanager.controller.abstractcontrollers.storage to javafx.fxml;
+    exports org.program.preciousstonemanager.controller.abstractcontrollers.scenes;
+    opens org.program.preciousstonemanager.controller.abstractcontrollers.scenes to javafx.fxml;
 }

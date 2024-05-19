@@ -1,4 +1,4 @@
-package org.program.preciousstonemanager.controller.abstractcontrollers;
+package org.program.preciousstonemanager.controller.abstractcontrollers.scenes;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -14,9 +14,12 @@ import org.program.stones.Stone;
 import org.program.stones.Storage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
-public abstract class SceneWithTablesController extends SceneController {
+public abstract class SceneWithTablesAndGoBackController extends SceneWithGoBackController {
+    protected List<Stone> storage;
+
     @FXML
     protected TableColumn<Stone, String> nameColumn, colorColumn;
     @FXML
@@ -26,9 +29,9 @@ public abstract class SceneWithTablesController extends SceneController {
 
     @Override
     public void switchToThisScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/CollectionScene.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + fxmlFileName + ".fxml")));
         root = loader.load();
-        SceneWithTablesController controller = loader.getController();
+        SceneWithTablesAndGoBackController controller = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -42,6 +45,6 @@ public abstract class SceneWithTablesController extends SceneController {
         weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
         transparencyColumn.setCellValueFactory(new PropertyValueFactory<>("transparency"));
-        stonesTable.setItems(FXCollections.observableList(Storage.collection));
+        stonesTable.setItems(FXCollections.observableList(storage));
     }
 }

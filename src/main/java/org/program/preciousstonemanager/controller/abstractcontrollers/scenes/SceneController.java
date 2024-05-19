@@ -1,4 +1,4 @@
-package org.program.preciousstonemanager.controller.abstractcontrollers;
+package org.program.preciousstonemanager.controller.abstractcontrollers.scenes;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
