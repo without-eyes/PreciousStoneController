@@ -15,25 +15,25 @@
                 <Image url="@../files/images/background.png"/>
             </image>
         </ImageView>
-        <Button layoutX="173.0" layoutY="150.0" mnemonicParsing="false" onAction="#switchToCreateStone"
+        <Button layoutX="175.0" layoutY="159.0" mnemonicParsing="false" onAction="#switchToCreateStone"
                 prefHeight="71.0" prefWidth="375.0" text="Додати камінь у колекцію">
             <font>
                 <Font name="Arial Black" size="15.0"/>
             </font>
         </Button>
-        <Button layoutX="173.0" layoutY="234.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="71.0"
+        <Button layoutX="175.0" layoutY="239.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="71.0"
                 prefWidth="375.0" text="Показати колекцію">
             <font>
                 <Font name="Arial Black" size="15.0"/>
             </font>
         </Button>
-        <Button layoutX="173.0" layoutY="398.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="71.0"
+        <Button layoutX="174.0" layoutY="400.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="71.0"
                 prefWidth="375.0" text="Вийти">
             <font>
                 <Font name="Arial Black" size="15.0"/>
             </font>
         </Button>
-        <Button layoutX="173.0" layoutY="315.0" mnemonicParsing="false" onAction="#goToNecklace" prefHeight="71.0"
+        <Button layoutX="173.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToNecklace" prefHeight="71.0"
                 prefWidth="375.0" text="Показати намисто">
             <font>
                 <Font name="Arial Black" size="15.0"/>

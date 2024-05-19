@@ -5,10 +5,9 @@ import javafx.fxml.FXMLLoader;
 import org.program.preciousstonemanager.controller.abstractcontrollers.storage.StorageController;
 import org.program.preciousstonemanager.controller.collection.ChangeStoneController;
 import org.program.preciousstonemanager.controller.collection.FindByTransparencyCollectionController;
-import org.program.preciousstonemanager.controller.collection.SortStonesCollectionController;
 import org.program.preciousstonemanager.database.DatabaseWorker;
-import org.program.stones.Stone;
-import org.program.stones.Storage;
+import org.program.preciousstonemanager.stones.Stone;
+import org.program.preciousstonemanager.stones.Storage;
 
 import java.io.IOException;
 import java.util.Objects;

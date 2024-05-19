@@ -1,7 +1,7 @@
-package program.userinterface.mainmenu;
+package org.program.userinterface.mainmenu;
 
 import org.program.other.Program;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 
 import java.io.IOException;

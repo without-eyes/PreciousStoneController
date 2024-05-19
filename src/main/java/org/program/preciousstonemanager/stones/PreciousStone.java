@@ -1,8 +1,8 @@
-package org.program.stones;
+package org.program.preciousstonemanager.stones;
 
 public class PreciousStone extends Stone {
-    public PreciousStone(String name, String color, int weight, int value, int transparency) {
-        super(name, color, weight, value, transparency);
+    public PreciousStone(String name, String color, int weight, int value, int transparency, Boolean isInNecklace) {
+        super(name, color, weight, value, transparency, isInNecklace);
     }
 
     @Override

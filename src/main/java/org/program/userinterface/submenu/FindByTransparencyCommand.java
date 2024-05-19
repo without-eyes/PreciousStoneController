@@ -2,7 +2,7 @@ package org.program.userinterface.submenu;
 
 import org.apache.log4j.Logger;
 import org.program.preciousstonemanager.database.DatabaseWorker;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 import org.program.userinterface.menuinterface.BeautifulOutput;
 

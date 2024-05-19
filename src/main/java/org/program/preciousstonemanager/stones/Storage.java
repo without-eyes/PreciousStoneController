@@ -1,4 +1,4 @@
-package org.program.stones;
+package org.program.preciousstonemanager.stones;
 
 import org.program.preciousstonemanager.database.DatabaseWorker;
 

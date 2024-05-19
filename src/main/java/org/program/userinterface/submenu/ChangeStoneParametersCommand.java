@@ -2,9 +2,9 @@ package org.program.userinterface.submenu;
 
 import org.apache.log4j.Logger;
 import org.program.preciousstonemanager.database.DatabaseWorker;
-import org.program.stones.PreciousStone;
-import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.PreciousStone;
+import org.program.preciousstonemanager.stones.SemiPreciousStone;
+import org.program.preciousstonemanager.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 import org.program.userinterface.menuinterface.BeautifulOutput;
 
@@ -119,14 +119,16 @@ public class ChangeStoneParametersCommand implements Command {
                     collection.get(stoneIndex).getColor(),
                     collection.get(stoneIndex).getWeight(),
                     collection.get(stoneIndex).getValue(),
-                    collection.get(stoneIndex).getTransparency()));
+                    collection.get(stoneIndex).getTransparency(),
+                    collection.get(stoneIndex).getIsInNecklace()));
             collection.remove(stoneIndex);
         } else if (type.equals("напівкоштовний")) {
             collection.add(new SemiPreciousStone(collection.get(stoneIndex).getName(),
                     collection.get(stoneIndex).getColor(),
                     collection.get(stoneIndex).getWeight(),
                     collection.get(stoneIndex).getValue(),
-                    collection.get(stoneIndex).getTransparency()));
+                    collection.get(stoneIndex).getTransparency(),
+                    collection.get(stoneIndex).getIsInNecklace()));
             collection.remove(stoneIndex);
         }
     }

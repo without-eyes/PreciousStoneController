@@ -6,8 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import org.program.preciousstonemanager.controller.abstractcontrollers.scenes.SceneWithTablesAndGoBackController;
-import org.program.preciousstonemanager.controller.mainmenu.CollectionController;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.Stone;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public abstract class FindByTransparencyController extends SceneWithTablesAndGoB
     public void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(pathBack)));
         loader.load();
-        CollectionController collectionController = loader.getController();
-        collectionController.switchToThisScene(event);
+        StorageController storageController = loader.getController();
+        storageController.switchToThisScene(event);
     }
 }

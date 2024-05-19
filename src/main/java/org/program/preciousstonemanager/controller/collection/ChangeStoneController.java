@@ -6,13 +6,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import org.program.preciousstonemanager.controller.abstractcontrollers.scenes.SceneWithGoBackController;
 import org.program.preciousstonemanager.database.DatabaseWorker;
-import org.program.stones.PreciousStone;
-import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
-import org.program.stones.Storage;
+import org.program.preciousstonemanager.stones.PreciousStone;
+import org.program.preciousstonemanager.stones.SemiPreciousStone;
+import org.program.preciousstonemanager.stones.Stone;
+import org.program.preciousstonemanager.stones.Storage;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ChangeStoneController extends SceneWithGoBackController {
     protected static Stone selectedStone;
@@ -53,9 +52,9 @@ public class ChangeStoneController extends SceneWithGoBackController {
 
         Stone stone = null;
         if (preciousRadioButton.isSelected()) {
-            stone = new PreciousStone(name, color, weight, value, transparency);
+            stone = new PreciousStone(name, color, weight, value, transparency, false);
         } else if (semipreciousRadioButton.isSelected()) {
-            stone = new SemiPreciousStone(name, color, weight, value, transparency);
+            stone = new SemiPreciousStone(name, color, weight, value, transparency, false);
         }
         Storage.collection.remove(selectedStone);
         Storage.collection.add(stone);

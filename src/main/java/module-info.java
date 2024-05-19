@@ -4,10 +4,11 @@ module org.program.preciousstonemanager {
     requires javafx.graphics;
     requires log4j;
     requires java.sql;
+    requires mysql.connector.j;
 
     opens org.program.preciousstonemanager to javafx.fxml;
     opens org.program.preciousstonemanager.controller to javafx.fxml;
-    opens org.program.stones to javafx.base;
+    opens org.program.preciousstonemanager.stones to javafx.base;
 
     exports org.program.preciousstonemanager;
     exports org.program.preciousstonemanager.controller;
@@ -19,4 +20,6 @@ module org.program.preciousstonemanager {
     opens org.program.preciousstonemanager.controller.abstractcontrollers.storage to javafx.fxml;
     exports org.program.preciousstonemanager.controller.abstractcontrollers.scenes;
     opens org.program.preciousstonemanager.controller.abstractcontrollers.scenes to javafx.fxml;
+    exports org.program.preciousstonemanager.controller.necklace;
+    opens org.program.preciousstonemanager.controller.necklace to javafx.fxml;
 }

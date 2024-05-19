@@ -1,9 +1,9 @@
 package org.program.preciousstonemanager.database;
 
 import org.apache.log4j.Logger;
-import org.program.stones.PreciousStone;
-import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.PreciousStone;
+import org.program.preciousstonemanager.stones.SemiPreciousStone;
+import org.program.preciousstonemanager.stones.Stone;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -64,15 +64,15 @@ public class DatabaseWorker {
 
                 if (isNecklace && isInNecklace) {
                     if (type.equals(PreciousStone.class.getSimpleName())) {
-                        storage.add(new PreciousStone(name, color, weight, value, transparency));
+                        storage.add(new PreciousStone(name, color, weight, value, transparency, isInNecklace));
                     } else if (type.equals(SemiPreciousStone.class.getSimpleName())) {
-                        storage.add(new SemiPreciousStone(name, color, weight, value, transparency));
+                        storage.add(new SemiPreciousStone(name, color, weight, value, transparency, isInNecklace));
                     }
                 } else if (!isNecklace && !isInNecklace) {
                     if (type.equals(PreciousStone.class.getSimpleName())) {
-                        storage.add(new PreciousStone(name, color, weight, value, transparency));
+                        storage.add(new PreciousStone(name, color, weight, value, transparency, isInNecklace));
                     } else if (type.equals(SemiPreciousStone.class.getSimpleName())) {
-                        storage.add(new SemiPreciousStone(name, color, weight, value, transparency));
+                        storage.add(new SemiPreciousStone(name, color, weight, value, transparency, isInNecklace));
                     }
                 }
             }
@@ -116,6 +116,27 @@ public class DatabaseWorker {
         }
     }
 
+    public static void changeStoneLocation(Stone stone) {
+        logger.info("Перенесення каменя в інше сховище в базі даних");
+        try {
+            Class.forName(driverName);
+            Connection connection = DriverManager.getConnection(databaseName, user, password);
+            Statement statement = connection.createStatement();
+            String query = "UPDATE Stones" +
+                    "       SET IsInNecklace = IF(IsInNecklace = 1, 0, 1)" +
+                    "       WHERE Name = '" + stone.getName() + "' AND " +
+                    "       Type = '" + stone.getClass().getSimpleName() + "' AND " +
+                    "       Color = '" + stone.getColor() + "' AND " +
+                    "       Weight = " + stone.getWeight() + " AND " +
+                    "       Value = " + stone.getValue() + " AND " +
+                    "       Transparency = " + stone.getTransparency() + ";";
+            statement.executeUpdate(query);
+
+            logger.info("Перенесення каменя в інше сховище в базі даних відбулося успішно");
+        } catch (Exception e) {
+            logger.info("Помилка перенесення каменя в інше сховище в базі даних:" + e.toString());
+        }
+    }
 
     public static void deleteStone(Stone stone) {
         logger.info("Видалення каменя з бази даних");
@@ -123,7 +144,7 @@ public class DatabaseWorker {
             Class.forName(driverName);
             Connection connection = DriverManager.getConnection(databaseName, user, password);
             Statement statement = connection.createStatement();
-            String query = "DELETE * FROM Stones WHERE Name = '" + stone.getName() + "' AND" +
+            String query = "DELETE FROM Stones WHERE Name = '" + stone.getName() + "' AND" +
                     "                                   Type = '" + stone.getClass().getSimpleName() + "' AND" +
                     "                                   Color = '" + stone.getColor() + "' AND" +
                     "                                   Weight = " + stone.getValue() + " AND" +
@@ -134,21 +155,6 @@ public class DatabaseWorker {
             logger.info("Видалення каменя з бази даних відбулося успішно");
         } catch (Exception e) {
             logger.info("Помилка видалення каменя з бази даних:" + e.toString());
-        }
-    }
-
-    public static void cleanNecklace() {
-        logger.info("Видалення каменів з намиста і повернення їх у колекцію");
-        try {
-            Class.forName(driverName);
-            Connection connection = DriverManager.getConnection(databaseName, user, password);
-            Statement statement = connection.createStatement();
-            String query = "UPDATE Stones SET isInNecklace = false;";
-            statement.executeUpdate(query);
-
-            logger.info("Видалення каменів з намиста і повернення їх у колекцію відбулося успішно");
-        } catch (Exception e) {
-            logger.info("Помилка видалення каменів з намиста і повернення їх у колекцію:" + e.toString());
         }
     }
 }

@@ -1,4 +1,4 @@
-package org.program.stones;
+package org.program.preciousstonemanager.stones;
 
 public abstract class Stone {
     protected String name;
@@ -6,13 +6,15 @@ public abstract class Stone {
     protected int weight;
     protected int value;
     protected int transparency;
+    protected Boolean isInNecklace;
 
-    protected Stone(String name, String color, int weight, int value, int transparency) {
+    protected Stone(String name, String color, int weight, int value, int transparency, boolean isInNecklace) {
         this.name = name;
         this.color = color;
         this.weight = weight;
         this.value = value;
         this.transparency = transparency;
+        this.isInNecklace = isInNecklace;
     }
 
     public String getName() {
@@ -57,6 +59,14 @@ public abstract class Stone {
 
     public void setTransparency(int transparency) {
         this.transparency = transparency;
+    }
+
+    public Boolean getIsInNecklace() {
+        return isInNecklace;
+    }
+
+    public void setIsInNecklace(Boolean isInNecklace) {
+        this.isInNecklace = isInNecklace;
     }
 
     public String getAsString() {

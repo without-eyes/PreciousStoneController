@@ -2,9 +2,9 @@ package org.program.other;
 
 import org.apache.log4j.Logger;
 import org.program.preciousstonemanager.database.DatabaseWorker;
-import org.program.stones.PreciousStone;
-import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.PreciousStone;
+import org.program.preciousstonemanager.stones.SemiPreciousStone;
+import org.program.preciousstonemanager.stones.Stone;
 import org.program.userinterface.interfaceClass.Command;
 import org.program.userinterface.menuinterface.SubMenu;
 import org.program.userinterface.submenu.*;
@@ -49,11 +49,11 @@ public class Program {
         int transparency = scanner.nextInt();
 
         if (type.equals("дорогоцінний")) {
-            PreciousStone stone = new PreciousStone(name, color, weight, value, transparency);
+            PreciousStone stone = new PreciousStone(name, color, weight, value, transparency, false);
             collection.add(stone);
             //DatabaseWorker.writeIntoDatabase(stone, "collection");
         } else if (type.equals("напівкоштовний")) {
-            SemiPreciousStone stone = new SemiPreciousStone(name, color, weight, value, transparency);
+            SemiPreciousStone stone = new SemiPreciousStone(name, color, weight, value, transparency, false);
             collection.add(stone);
             //DatabaseWorker.writeIntoDatabase(stone, "collection");
         }

@@ -3,9 +3,9 @@ package org.program.userinterface.submenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.program.stones.PreciousStone;
-import org.program.stones.SemiPreciousStone;
-import org.program.stones.Stone;
+import org.program.preciousstonemanager.stones.PreciousStone;
+import org.program.preciousstonemanager.stones.SemiPreciousStone;
+import org.program.preciousstonemanager.stones.Stone;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

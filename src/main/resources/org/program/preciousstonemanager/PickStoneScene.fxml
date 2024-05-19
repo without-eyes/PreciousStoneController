@@ -4,48 +4,36 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: LIGHTSKYBLUE;"
             xmlns="http://javafx.com/javafx/21"
-            fx:controller="org.program.preciousstonemanager.controller.mainmenu.CollectionController">
+            fx:controller="org.program.preciousstonemanager.controller.necklace.PickStoneController">
     <children>
         <ImageView fitHeight="500.0" fitWidth="680.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true" smooth="false">
             <image>
                 <Image url="@../files/images/background.png"/>
             </image>
         </ImageView>
-        <Button layoutX="42.0" layoutY="395.0" mnemonicParsing="false" onAction="#findStoneByTransparency"
-                prefHeight="42.0" prefWidth="318.0" text="Знайти за прозорістю">
+        <Button layoutX="32.0" layoutY="435.0" mnemonicParsing="false" onAction="#pickStone" prefHeight="60.0"
+                prefWidth="328.0" text="Вибрати">
             <font>
                 <Font name="Arial Black" size="15.0"/>
             </font>
         </Button>
-        <Button layoutX="370.0" layoutY="443.0" mnemonicParsing="false" onAction="#goBack" prefHeight="42.0"
-                prefWidth="318.0" text="Назад">
+        <Button layoutX="361.0" layoutY="435.0" mnemonicParsing="false" onAction="#goBack" prefHeight="60.0"
+                prefWidth="328.0" text="Назад">
             <font>
                 <Font name="Arial Black" size="15.0"/>
             </font>
         </Button>
-        <Button layoutX="370.0" layoutY="395.0" mnemonicParsing="false" onAction="#changeStone" prefHeight="42.0"
-                prefWidth="318.0" text="Змінити параметри каменя">
-            <font>
-                <Font name="Arial Black" size="15.0"/>
-            </font>
-        </Button>
-        <Label alignment="TOP_CENTER" layoutX="132.0" layoutY="60.0" prefHeight="71.0" prefWidth="458.0" text="Колекція"
-               textFill="#77d4ff" wrapText="true">
+        <Label alignment="TOP_CENTER" layoutX="21.0" layoutY="60.0" prefHeight="71.0" prefWidth="680.0"
+               text="Вибрати камінь" textFill="#77d4ff" wrapText="true">
             <font>
                 <Font name="Arial Black" size="40.0"/>
             </font>
         </Label>
-        <Button layoutX="42.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteStone" prefHeight="42.0"
-                prefWidth="318.0" text="Видалити камінь">
-            <font>
-                <Font name="Arial Black" size="15.0"/>
-            </font>
-        </Button>
-        <TableView fx:id="stonesTable" layoutX="42.0" layoutY="150.0" prefHeight="234.0" prefWidth="646.0">
+        <TableView fx:id="stonesTable" layoutX="32.0" layoutY="134.0" prefHeight="292.0" prefWidth="656.0">
             <columns>
                 <TableColumn fx:id="nameColumn" prefWidth="134.0" text="Назва"/>
                 <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="140.0" text="Тип"/>
