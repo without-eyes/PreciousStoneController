@@ -7,19 +7,11 @@ module org.program.preciousstonemanager {
     requires mysql.connector.j;
 
     opens org.program.preciousstonemanager to javafx.fxml;
-    opens org.program.preciousstonemanager.controller to javafx.fxml;
-    opens org.program.preciousstonemanager.stones to javafx.base;
+    opens org.program.preciousstonemanager.controllers to javafx.fxml;
+    opens org.program.preciousstonemanager.models to javafx.base;
 
     exports org.program.preciousstonemanager;
-    exports org.program.preciousstonemanager.controller;
-    exports org.program.preciousstonemanager.controller.collection;
-    opens org.program.preciousstonemanager.controller.collection to javafx.fxml;
-    exports org.program.preciousstonemanager.controller.mainmenu;
-    opens org.program.preciousstonemanager.controller.mainmenu to javafx.fxml;
-    exports org.program.preciousstonemanager.controller.abstractcontrollers.storage;
-    opens org.program.preciousstonemanager.controller.abstractcontrollers.storage to javafx.fxml;
-    exports org.program.preciousstonemanager.controller.abstractcontrollers.scenes;
-    opens org.program.preciousstonemanager.controller.abstractcontrollers.scenes to javafx.fxml;
-    exports org.program.preciousstonemanager.controller.necklace;
-    opens org.program.preciousstonemanager.controller.necklace to javafx.fxml;
+    exports org.program.preciousstonemanager.controllers;
+    exports org.program.preciousstonemanager.controllers.abstractcontrollers;
+    opens org.program.preciousstonemanager.controllers.abstractcontrollers to javafx.fxml;
 }

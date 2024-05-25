@@ -5,10 +5,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
             prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: LIGHTSKYBLUE;"
             xmlns="http://javafx.com/javafx/21"
-            fx:controller="org.program.preciousstonemanager.controller.mainmenu.CollectionController">
+            fx:controller="org.program.preciousstonemanager.controllers.CollectionController">
     <children>
         <ImageView fitHeight="500.0" fitWidth="680.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true" smooth="false">
             <image>
