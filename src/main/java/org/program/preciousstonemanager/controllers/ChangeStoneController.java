@@ -21,13 +21,10 @@ public class ChangeStoneController extends SceneWithGoBackController {
     @FXML
     protected RadioButton preciousRadioButton, semipreciousRadioButton;
 
-    public static void setSelectedStone(Stone stone) {
-        selectedStone = stone;
-    }
-
     @FXML
     public void initialize() {
         fxmlFileName = "ChangeStoneScene";
+        logger.info("Ініціалізація сцени: " + fxmlFileName);
         if (selectedStone != null) {
             nameTextField.setText(selectedStone.getName());
             if (selectedStone.getType().equals("дорогоцінний")) {
@@ -42,6 +39,11 @@ public class ChangeStoneController extends SceneWithGoBackController {
         }
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void changeStone(ActionEvent event) throws IOException {
         String name = nameTextField.getText();
         String color = colorTextField.getText();
@@ -54,9 +56,22 @@ public class ChangeStoneController extends SceneWithGoBackController {
         Storage.addIntoCollection(changedStone);
         DatabaseWorker.changeStone(selectedStone, changedStone);
 
+        logger.info("Зміна каменя: " + selectedStone.getName());
+
         goBack(event);
     }
 
+    /**
+     *
+     * @param name
+     * @param color
+     * @param weight
+     * @param value
+     * @param transparency
+     * @param isInNecklace
+     * @param isPreciousStone
+     * @return
+     */
     private Stone createChangedStone(String name, String color, int weight, int value, int transparency, boolean isInNecklace, boolean isPreciousStone) {
         Stone changedStone;
         if (isPreciousStone) {
@@ -65,5 +80,14 @@ public class ChangeStoneController extends SceneWithGoBackController {
             changedStone = new SemiPreciousStone(name, color, weight, value, transparency, false);
         }
         return changedStone;
+    }
+
+    /**
+     *
+     * @param stone
+     */
+    public static void setSelectedStone(Stone stone) {
+        logger.info("Встановлення вибраного каменя: " + stone.getName());
+        selectedStone = stone;
     }
 }

@@ -11,10 +11,17 @@ public class CollectionController extends StorageController {
     @Override
     public void initialize() {
         fxmlFileName = "CollectionScene";
+        logger.info("Ініціалізація сцени: " + fxmlFileName);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @Override
     public void findStoneByTransparency(ActionEvent event) throws IOException {
+        logger.info("Перехід на сцену: FindStoneByTransparency");
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/FindByTransparencyScene.fxml")));
         loader.load();
         FindByTransparencyController findByTransparencyController = loader.getController();
@@ -23,7 +30,13 @@ public class CollectionController extends StorageController {
         findByTransparencyController.switchToThisScene(event);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void changeStone(ActionEvent event) throws IOException {
+        logger.info("Перехід на сцену: ChangeStoneScene");
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/ChangeStoneScene.fxml")));
         loader.load();
         ChangeStoneController changeStoneController = loader.getController();

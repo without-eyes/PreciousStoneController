@@ -24,10 +24,17 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
     @FXML
     public void initialize() {
         fxmlFileName = "FindByTransparencyScene";
+        logger.info("Ініціалізація сцени: " + fxmlFileName);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @Override
     public void switchToThisScene(ActionEvent event) throws IOException {
+        logger.info("перехід на сцену: " + fxmlFileName);
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + fxmlFileName + ".fxml")));
         root = loader.load();
         FindByTransparencyController controller = loader.getController();
@@ -40,7 +47,11 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
         stage.show();
     }
 
+    /**
+     *
+     */
     public void findByTransparency() {
+        logger.info("Знаходження каменів за прозорістю");
         int lowerBorder = Integer.parseInt(lowerBorderTextField.getText());
         int upperBorder = Integer.parseInt(upperBorderTextField.getText());
         List<Stone> tempStorage = findStones(storage, lowerBorder, upperBorder);
@@ -48,15 +59,29 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
         stonesTable.setItems(FXCollections.observableList(tempStorage));
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @Override
     public void goBack(ActionEvent event) throws IOException {
+        logger.info("Перехід на попередню сцену: " + fxmlFileName);
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + previousSceneName + ".fxml")));
         loader.load();
         SceneWithTablesAndGoBackController sceneWithTablesAndGoBackController = loader.getController();
         sceneWithTablesAndGoBackController.switchToThisScene(event);
     }
 
+    /**
+     *
+     * @param storage
+     * @param lowerBorder
+     * @param upperBorder
+     * @return
+     */
     private List<Stone> findStones(List<Stone> storage, int lowerBorder, int upperBorder) {
+        logger.info("Пошук потрібних каменів");
         List<Stone> tempStorage = new ArrayList<>();
         for (Stone stone : storage) {
             if (stone.getTransparency() >= lowerBorder && stone.getTransparency() <= upperBorder) {

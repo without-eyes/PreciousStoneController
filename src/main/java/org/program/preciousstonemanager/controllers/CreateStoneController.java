@@ -26,10 +26,17 @@ public class CreateStoneController extends SceneWithGoBackController {
     @Override
     public void initialize() {
         fxmlFileName = "CreateStoneScene";
+        logger.info("Ініціалізація сцени: " + fxmlFileName);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @Override
     public void switchToThisScene(ActionEvent event) throws IOException {
+        logger.info("Перехід на сцену: " + fxmlFileName);
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + fxmlFileName + ".fxml")));
         root = loader.load();
         CreateStoneController controller = loader.getController();
@@ -40,6 +47,11 @@ public class CreateStoneController extends SceneWithGoBackController {
         stage.show();
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void createStone(ActionEvent event) throws IOException {
         String name = nameTextField.getText();
         String color = colorTextField.getText();
@@ -50,9 +62,22 @@ public class CreateStoneController extends SceneWithGoBackController {
         Stone stone = createNewStone(name, color, weight, value, transparency, false, preciousRadioButton.isSelected());
         Storage.addIntoCollection(stone);
 
+        logger.info("Створення каменя: " + stone.getName());
+
         goBack(event);
     }
 
+    /**
+     *
+     * @param name
+     * @param color
+     * @param weight
+     * @param value
+     * @param transparency
+     * @param isInNecklace
+     * @param isPreciousStone
+     * @return
+     */
     private Stone createNewStone(String name, String color, int weight, int value, int transparency, boolean isInNecklace, boolean isPreciousStone) {
         Stone newStone;
         if (isPreciousStone) {

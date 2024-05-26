@@ -19,9 +19,16 @@ public class NecklaceController extends StorageController {
     @Override
     public void initialize() {
         fxmlFileName = "NecklaceScene";
+        logger.info("Ініціалізація сцени: " + fxmlFileName);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void pickStone(ActionEvent event) throws IOException {
+        logger.info("Перехід на сцену: PickStoneScene");
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/PickStoneScene.fxml")));
         loader.load();
         PickStoneController pickStoneController = loader.getController();
@@ -30,7 +37,13 @@ public class NecklaceController extends StorageController {
         pickStoneController.switchToThisScene(event);
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void findStoneByTransparency(ActionEvent event) throws IOException {
+        logger.info("Перехід на сцену: FindStoneByTransparencyScene");
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/FindByTransparencyScene.fxml")));
         loader.load();
         FindByTransparencyController findByTransparencyController = loader.getController();
@@ -39,12 +52,20 @@ public class NecklaceController extends StorageController {
         findByTransparencyController.switchToThisScene(event);
     }
 
+    /**
+     *
+     */
     public void calculateNecklaceValueAndWeight() {
+        logger.info("Обрахування вартості і ваги намиста");
         Pair stats = getNecklaceValueAndWeight();
         valueLabel.setText("Вартість($): " + stats.getKey());
         weightLabel.setText("Вага(ct): " + stats.getValue());
     }
 
+    /**
+     *
+     * @return
+     */
     private Pair<Integer, Integer> getNecklaceValueAndWeight() {
         int value = 0;
         int weight = 0;
@@ -55,13 +76,21 @@ public class NecklaceController extends StorageController {
         return new Pair<>(value, weight);
     }
 
+    /**
+     *
+     */
     public void removeStone() {
         Stone selectedStone = stonesTable.getSelectionModel().getSelectedItem();
+        logger.info("Видалення вибраного каменя: " + selectedStone.getName());
         Storage.changeStoneStorage(selectedStone, false);
         stonesTable.getItems().remove(selectedStone);
     }
 
+    /**
+     *
+     */
     public void clearNecklace() {
+        logger.info("Очищення намиста");
         try {
             for (Stone stone : Storage.getNecklace()) {
                 Storage.changeStoneStorage(stone, false);

@@ -19,6 +19,11 @@ public class DatabaseWorker {
     private static final String user = "admin";
     private static final String password = "password";
 
+    /**
+     *
+     * @param stone
+     * @param addIntoNecklace
+     */
     public static void writeIntoDatabase(Stone stone, Boolean addIntoNecklace) {
         logger.info("Запис каменя у базу даних");
         try {
@@ -39,6 +44,11 @@ public class DatabaseWorker {
         }
     }
 
+    /**
+     *
+     * @param isNecklace
+     * @return
+     */
     public static List<Stone> readFromDatabase(Boolean isNecklace) {
         logger.info("Зчитування каменів з бази даних");
         List<Stone> storage = new ArrayList<>();
@@ -79,6 +89,11 @@ public class DatabaseWorker {
         return storage;
     }
 
+    /**
+     *
+     * @param oldStone
+     * @param newStone
+     */
     public static void changeStone(Stone oldStone, Stone newStone) {
         logger.info("Зміна каменя в базі даних");
         try {
@@ -110,6 +125,10 @@ public class DatabaseWorker {
         }
     }
 
+    /**
+     *
+     * @param stone
+     */
     public static void changeStoneStorage(Stone stone) {
         logger.info("Перенесення каменя в інше сховище в базі даних");
         try {
@@ -131,6 +150,10 @@ public class DatabaseWorker {
         }
     }
 
+    /**
+     *
+     * @param stone
+     */
     public static void deleteStone(Stone stone) {
         logger.info("Видалення каменя з бази даних");
         try {

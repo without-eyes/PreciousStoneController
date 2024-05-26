@@ -39,6 +39,11 @@ public class Storage {
         DatabaseWorker.deleteStone(stone);
     }
 
+    /**
+     *
+     * @param stone
+     * @param swapToNecklace
+     */
     public static void changeStoneStorage(Stone stone, Boolean swapToNecklace) {
         DatabaseWorker.changeStoneStorage(stone);
         if (swapToNecklace) {
