@@ -15,7 +15,6 @@ public class CollectionController extends StorageController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -31,7 +30,6 @@ public class CollectionController extends StorageController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */

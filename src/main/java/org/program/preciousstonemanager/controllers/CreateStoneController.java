@@ -30,7 +30,6 @@ public class CreateStoneController extends SceneWithGoBackController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -48,7 +47,6 @@ public class CreateStoneController extends SceneWithGoBackController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -68,7 +66,6 @@ public class CreateStoneController extends SceneWithGoBackController {
     }
 
     /**
-     *
      * @param name
      * @param color
      * @param weight
@@ -82,7 +79,7 @@ public class CreateStoneController extends SceneWithGoBackController {
         Stone newStone;
         if (isPreciousStone) {
             newStone = new PreciousStone(name, color, weight, value, transparency, isInNecklace);
-        } else  {
+        } else {
             newStone = new SemiPreciousStone(name, color, weight, value, transparency, isInNecklace);
         }
         return newStone;

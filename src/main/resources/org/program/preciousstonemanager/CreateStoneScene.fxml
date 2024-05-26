@@ -52,7 +52,7 @@
             </font>
         </Label>
         <Label alignment="TOP_LEFT" layoutX="55.0" layoutY="251.0" prefHeight="28.0" prefWidth="242.0"
-               text="Маса(в каратах):" textFill="#77d4ff">
+               text="Вага(в каратах):" textFill="#77d4ff">
             <font>
                 <Font name="Arial Black" size="19.0"/>
             </font>

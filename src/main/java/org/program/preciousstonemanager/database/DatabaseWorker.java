@@ -20,7 +20,6 @@ public class DatabaseWorker {
     private static final String password = "password";
 
     /**
-     *
      * @param stone
      * @param addIntoNecklace
      */
@@ -45,7 +44,6 @@ public class DatabaseWorker {
     }
 
     /**
-     *
      * @param isNecklace
      * @return
      */
@@ -90,7 +88,6 @@ public class DatabaseWorker {
     }
 
     /**
-     *
      * @param oldStone
      * @param newStone
      */
@@ -126,7 +123,6 @@ public class DatabaseWorker {
     }
 
     /**
-     *
      * @param stone
      */
     public static void changeStoneStorage(Stone stone) {
@@ -151,7 +147,6 @@ public class DatabaseWorker {
     }
 
     /**
-     *
      * @param stone
      */
     public static void deleteStone(Stone stone) {

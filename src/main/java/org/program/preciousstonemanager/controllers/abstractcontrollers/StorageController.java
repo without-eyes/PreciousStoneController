@@ -11,7 +11,6 @@ import java.util.Objects;
 
 public abstract class StorageController extends SceneWithTablesAndGoBackController {
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -34,7 +33,6 @@ public abstract class StorageController extends SceneWithTablesAndGoBackControll
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */

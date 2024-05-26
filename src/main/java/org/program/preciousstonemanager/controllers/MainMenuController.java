@@ -16,7 +16,6 @@ public class MainMenuController extends SceneController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -30,7 +29,6 @@ public class MainMenuController extends SceneController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -44,7 +42,6 @@ public class MainMenuController extends SceneController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */

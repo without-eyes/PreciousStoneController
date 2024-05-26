@@ -17,12 +17,12 @@ public class Storage {
         return collection;
     }
 
-    public static List<Stone> getNecklace() {
-        return necklace;
-    }
-
     public static void setCollection(List<Stone> newCollection) {
         collection = newCollection;
+    }
+
+    public static List<Stone> getNecklace() {
+        return necklace;
     }
 
     public static void setNecklace(List<Stone> newNecklace) {
@@ -40,7 +40,6 @@ public class Storage {
     }
 
     /**
-     *
      * @param stone
      * @param swapToNecklace
      */

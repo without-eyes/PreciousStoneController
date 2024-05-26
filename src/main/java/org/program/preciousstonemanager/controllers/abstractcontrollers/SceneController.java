@@ -28,7 +28,6 @@ public abstract class SceneController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */

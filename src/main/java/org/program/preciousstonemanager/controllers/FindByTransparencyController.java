@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.program.preciousstonemanager.controllers.abstractcontrollers.SceneWithTablesAndGoBackController;
 import org.program.preciousstonemanager.models.Stone;
+import org.program.preciousstonemanager.models.Storage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -60,7 +60,6 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -70,11 +69,11 @@ public class FindByTransparencyController extends SceneWithTablesAndGoBackContro
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + previousSceneName + ".fxml")));
         loader.load();
         SceneWithTablesAndGoBackController sceneWithTablesAndGoBackController = loader.getController();
+        sceneWithTablesAndGoBackController.setStorage(Storage.getCollection());
         sceneWithTablesAndGoBackController.switchToThisScene(event);
     }
 
     /**
-     *
      * @param storage
      * @param lowerBorder
      * @param upperBorder

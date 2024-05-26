@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NecklaceControllerTest {
     NecklaceController controller;
@@ -35,7 +35,7 @@ class NecklaceControllerTest {
     void getNecklaceValueAndWeightTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         int expectedValue = 6200;
         int expectedWeight = 58;
-        Pair<Integer, Integer> result = (Pair<Integer, Integer>)getNecklaceValueAndWeight().invoke(controller);
+        Pair<Integer, Integer> result = (Pair<Integer, Integer>) getNecklaceValueAndWeight().invoke(controller);
         assertEquals(expectedValue, result.getKey());
         assertEquals(expectedWeight, result.getValue());
     }

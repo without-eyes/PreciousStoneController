@@ -10,7 +10,6 @@ public abstract class SceneWithGoBackController extends SceneController {
     protected String previousSceneName;
 
     /**
-     *
      * @param previousSceneName
      */
     public void setPreviousSceneName(String previousSceneName) {
@@ -18,7 +17,6 @@ public abstract class SceneWithGoBackController extends SceneController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */

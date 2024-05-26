@@ -2,9 +2,11 @@ package org.program.preciousstonemanager.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import org.program.preciousstonemanager.controllers.abstractcontrollers.SceneWithGoBackController;
+import org.program.preciousstonemanager.controllers.abstractcontrollers.StorageController;
 import org.program.preciousstonemanager.database.DatabaseWorker;
 import org.program.preciousstonemanager.models.PreciousStone;
 import org.program.preciousstonemanager.models.SemiPreciousStone;
@@ -12,6 +14,7 @@ import org.program.preciousstonemanager.models.Stone;
 import org.program.preciousstonemanager.models.Storage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ChangeStoneController extends SceneWithGoBackController {
     protected static Stone selectedStone;
@@ -20,6 +23,14 @@ public class ChangeStoneController extends SceneWithGoBackController {
     protected TextField nameTextField, colorTextField, weightTextField, valueTextField, transparencyTextField;
     @FXML
     protected RadioButton preciousRadioButton, semipreciousRadioButton;
+
+    /**
+     * @param stone
+     */
+    public static void setSelectedStone(Stone stone) {
+        logger.info("Встановлення вибраного каменя: " + stone.getName());
+        selectedStone = stone;
+    }
 
     @FXML
     public void initialize() {
@@ -40,7 +51,6 @@ public class ChangeStoneController extends SceneWithGoBackController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -62,7 +72,6 @@ public class ChangeStoneController extends SceneWithGoBackController {
     }
 
     /**
-     *
      * @param name
      * @param color
      * @param weight
@@ -76,18 +85,19 @@ public class ChangeStoneController extends SceneWithGoBackController {
         Stone changedStone;
         if (isPreciousStone) {
             changedStone = new PreciousStone(name, color, weight, value, transparency, false);
-        } else  {
+        } else {
             changedStone = new SemiPreciousStone(name, color, weight, value, transparency, false);
         }
         return changedStone;
     }
 
-    /**
-     *
-     * @param stone
-     */
-    public static void setSelectedStone(Stone stone) {
-        logger.info("Встановлення вибраного каменя: " + stone.getName());
-        selectedStone = stone;
+    @Override
+    public void goBack(ActionEvent event) throws IOException {
+        logger.info("Перехід на попередню сцену:" + previousSceneName);
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + previousSceneName + ".fxml")));
+        loader.load();
+        StorageController storageController = loader.getController();
+        storageController.setStorage(Storage.getCollection());
+        storageController.switchToThisScene(event);
     }
 }

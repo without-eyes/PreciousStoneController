@@ -23,7 +23,6 @@ public class NecklaceController extends StorageController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -38,7 +37,6 @@ public class NecklaceController extends StorageController {
     }
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -63,7 +61,6 @@ public class NecklaceController extends StorageController {
     }
 
     /**
-     *
      * @return
      */
     private Pair<Integer, Integer> getNecklaceValueAndWeight() {

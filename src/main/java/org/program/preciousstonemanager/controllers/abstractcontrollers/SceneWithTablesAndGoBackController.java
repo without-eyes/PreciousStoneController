@@ -27,7 +27,6 @@ public abstract class SceneWithTablesAndGoBackController extends SceneWithGoBack
     protected TableView<Stone> stonesTable;
 
     /**
-     *
      * @param event
      * @throws IOException
      */
@@ -46,7 +45,6 @@ public abstract class SceneWithTablesAndGoBackController extends SceneWithGoBack
     }
 
     /**
-     *
      * @param storage
      */
     public void setStorage(List<Stone> storage) {
@@ -66,5 +64,14 @@ public abstract class SceneWithTablesAndGoBackController extends SceneWithGoBack
         valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
         transparencyColumn.setCellValueFactory(new PropertyValueFactory<>("transparency"));
         stonesTable.setItems(FXCollections.observableList(storage));
+    }
+
+    @Override
+    public void goBack(ActionEvent event) throws IOException {
+        logger.info("Перехід на попередню сцену:" + previousSceneName);
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/org/program/preciousstonemanager/" + previousSceneName + ".fxml")));
+        loader.load();
+        SceneWithTablesAndGoBackController sceneWithTablesAndGoBackController = loader.getController();
+        sceneWithTablesAndGoBackController.switchToThisScene(event);
     }
 }
